@@ -435,20 +435,28 @@ footer {
 
 .whatsapp {
   position: fixed;
-  right: 22px;
-  bottom: 22px;
-  background: linear-gradient(135deg, #25d366, #128c4a);
-  color: white;
-  padding: 16px 22px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 900;
-  box-shadow: 0 16px 40px rgba(37,211,102,.35);
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
   z-index: 999;
+  transition: 0.3s;
 }
 
-.whatsapp::before {
-  content: "";
+.whatsapp img {
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
 }
 
 @media (max-width: 950px) {
