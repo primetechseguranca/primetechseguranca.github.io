@@ -8,6 +8,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <link data-default-icon="https://i.imgur.com/Mz1EcZS.png" rel="icon" sizes="192x192" href="https://i.imgur.com/Mz1EcZS.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -117,9 +118,7 @@
             </div>
 
             <div class="hidden md:block">
-                <a href="https://wa.me/message/HXQ5L5Q4W6CUE1" target="_blank" class="btn-primary px-5 py-2.5 rounded-lg font-semibold transition-all">
-                    Solicitar Orçamento
-                </a>
+                
             </div>
 
             <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none">
@@ -135,9 +134,7 @@
             <a href="#services" class="block text-gray-300 hover:text-yellow-400 transition-colors">Serviços</a>
             <a href="#differentials" class="block text-gray-300 hover:text-yellow-400 transition-colors">Diferenciais</a>
             <a href="#contact" class="block text-gray-300 hover:text-yellow-400 transition-colors">Contato</a>
-            <a href="https://wa.me/message/HXQ5L5Q4W6CUE1" target="_blank" class="block btn-primary text-center px-5 py-3 rounded-lg font-semibold">
-                Solicitar Orçamento
-            </a>
+            
         </div>
     </header>
 
@@ -160,19 +157,12 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 mb-10">
-                        <a href="https://wa.me/message/HXQ5L5Q4W6CUE1" target="_blank" class="btn-primary px-6 py-3 rounded-lg font-semibold text-center transition-all">
-                            Falar no WhatsApp
-                        </a>
                         <a href="#services" class="btn-outline px-6 py-3 rounded-lg font-semibold text-center transition-all">
                             Ver Serviços
                         </a>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="glass rounded-xl p-4">
-                            <h3 class="text-2xl font-bold text-yellow-400">7+</h3>
-                            <p class="text-sm text-gray-300">Serviços principais</p>
-                        </div>
                         <div class="glass rounded-xl p-4">
                             <h3 class="text-2xl font-bold text-yellow-400">2</h3>
                             <p class="text-sm text-gray-300">Estados atendidos</p>
@@ -386,11 +376,19 @@
                 <div class="grid md:grid-cols-3 gap-6 text-left">
                     <div class="glass rounded-2xl p-6">
                         <h3 class="text-lg font-bold text-white mb-2">Telefone</h3>
-                        <p class="text-gray-300">(79) 99847-8570</p>
+                        <p>
+                        <a href="https://wa.me/5579998478570" target="_blank" class="text-yellow-400 hover:text-yellow-300 transition-colors">
+                        (79) 99847-8570
+                        </a>
+                        </p>
                     </div>
                     <div class="glass rounded-2xl p-6">
                         <h3 class="text-lg font-bold text-white mb-2">E-mail</h3>
-                        <p class="text-gray-300 break-words">primetech.seg@outlook.com</p>
+                        <p class="text-gray-300 break-words">
+                        <a href="mailto:primetech.seg@outlook.com" class="text-yellow-400 hover:text-yellow-300 transition-colors">
+                         primetech.seg@outlook.com
+                        </a>
+                        </p>
                     </div>
                     <div class="glass rounded-2xl p-6">
                         <h3 class="text-lg font-bold text-white mb-2">Instagram</h3>
@@ -400,11 +398,6 @@
                     </div>
                 </div>
 
-                <div class="mt-10">
-                    <a href="https://wa.me/message/HXQ5L5Q4W6CUE1" target="_blank" class="btn-primary inline-block px-8 py-4 rounded-xl font-bold text-lg transition-all">
-                        Solicitar atendimento agora
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -424,33 +417,447 @@
         </div>
     </footer>
 
-    <!-- BOTÃO FLUTUANTE WHATSAPP -->
-    <a 
-        href="https://wa.me/message/HXQ5L5Q4W6CUE1" 
-        target="_blank"
-        class="fixed bottom-6 right-6 z-50 btn-primary px-5 py-4 rounded-full shadow-2xl font-bold hover:scale-105 transition-transform"
-        aria-label="Falar no WhatsApp"
+    <!-- CHAT PRIME TECH -->
+<div id="prime-chat">
+  <button id="chat-toggle" aria-label="Abrir chat">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 10h8M8 14h5m-9 6 1.8-3.6A9 9 0 1 1 21 12a9 9 0 0 1-9 9 8.96 8.96 0 0 1-4.2-1.04L4 20Z"/>
+  </svg>
+</button>
+
+  <div id="chat-box" class="chat-hidden">
+    <div class="chat-header">
+      <div>
+        <strong><span class="text-metal-chat">Prime</span><span class="text-gold-chat">Tech</span></strong>
+        <small>Atendimento online</small>
+      </div>
+      <button id="chat-close" aria-label="Fechar chat">✕</button>
+    </div>
+
+    <div class="chat-body" id="chat-body">
+      <div class="msg bot">
+        Olá 👋 Seja bem-vindo à <strong>PrimeTech</strong>.<br>
+        Como podemos ajudar você hoje?
+      </div>
+
+      <div class="quick-options">
+        <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para CFTV.">CFTV</button>
+        <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para Alarme.">Alarme</button>
+        <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para Cerca Elétrica.">Cerca Elétrica</button>
+        <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para Serviço Elétrico.">Serviço Elétrico</button>
+      </div>
+    </div>
+
+    <div class="chat-footer">
+      <input
+        type="text"
+        id="chat-input"
+        placeholder="Digite sua mensagem..."
+      />
+      <button id="send-btn">Enviar</button>
+    </div>
+
+    <a
+      id="whatsapp-link"
+      href="https://wa.me/5579998478570?text=Olá,%20vim%20pelo%20site%20da%20PrimeTech%20e%20quero%20mais%20informações."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="chat-whatsapp"
     >
-        WhatsApp
+      Continuar no WhatsApp
     </a>
+  </div>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuBtn = document.getElementById('menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
+<style>
+  #prime-chat {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9999;
+    font-family: 'Inter', sans-serif;
+  }
 
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+  #chat-toggle {
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(250, 204, 21, 0.22);
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at top left, rgba(250, 204, 21, 0.18), transparent 35%),
+      linear-gradient(135deg, #020617 0%, #0b0f19 55%, #111827 100%);
+    color: #facc15;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.35),
+      0 0 0 1px rgba(250, 204, 21, 0.06) inset;
+    transition: all 0.3s ease;
+  }
 
-            document.querySelectorAll('#mobile-menu a, header nav a').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                });
-            });
-        });
-    </script>
+  #chat-toggle:hover {
+    transform: translateY(-2px) scale(1.03);
+    border-color: rgba(250, 204, 21, 0.45);
+    box-shadow:
+      0 16px 34px rgba(0,0,0,0.42),
+      0 0 20px rgba(250, 204, 21, 0.10);
+  }
+
+  #chat-box {
+    width: 360px;
+    max-width: calc(100vw - 24px);
+    height: 540px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 22px;
+    border: 1px solid rgba(250, 204, 21, 0.14);
+    background: rgba(17, 24, 39, 0.82);
+    backdrop-filter: blur(14px);
+    box-shadow:
+      0 25px 60px rgba(0,0,0,0.45),
+      0 0 0 1px rgba(250, 204, 21, 0.04) inset;
+  }
+
+  .chat-hidden {
+    display: none !important;
+  }
+
+  .chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.12);
+    background:
+      radial-gradient(circle at top left, rgba(250, 204, 21, 0.10), transparent 35%),
+      linear-gradient(180deg, rgba(2, 6, 23, 0.92), rgba(11, 15, 25, 0.88));
+  }
+
+  .chat-header strong {
+    display: block;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  }
+
+  .chat-header small {
+    color: #9ca3af;
+    font-size: 12px;
+  }
+
+  .text-metal-chat {
+    background: linear-gradient(90deg, #cfd4dc 0%, #ffffff 45%, #b5bcc6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gold-chat {
+    color: #facc15;
+  }
+
+  #chat-close {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid rgba(250, 204, 21, 0.12);
+    background: rgba(255,255,255,0.03);
+    color: #e5e7eb;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  #chat-close:hover {
+    border-color: rgba(250, 204, 21, 0.35);
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.05);
+  }
+
+  .chat-body {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background:
+      radial-gradient(circle at top right, rgba(250, 204, 21, 0.06), transparent 28%),
+      radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.05), transparent 24%),
+      linear-gradient(180deg, rgba(11, 15, 25, 0.98), rgba(17, 24, 39, 0.96));
+  }
+
+  .chat-body::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .chat-body::-webkit-scrollbar-thumb {
+    background: rgba(250, 204, 21, 0.18);
+    border-radius: 999px;
+  }
+
+  .msg {
+    max-width: 88%;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .msg.bot {
+    color: #e5e7eb;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(250, 204, 21, 0.10);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .msg.user {
+    margin-left: auto;
+    color: #111827;
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.18);
+  }
+
+  .quick-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .quick-btn {
+    padding: 11px 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(250, 204, 21, 0.14);
+    background: rgba(255,255,255,0.03);
+    color: #e5e7eb;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .quick-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(250, 204, 21, 0.45);
+    background: rgba(250, 204, 21, 0.08);
+    color: #ffffff;
+  }
+
+  .chat-footer {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid rgba(250, 204, 21, 0.10);
+    background: rgba(2, 6, 23, 0.92);
+  }
+
+  #chat-input {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(250, 204, 21, 0.12);
+    background: rgba(255,255,255,0.04);
+    color: #e5e7eb;
+    outline: none;
+    transition: all 0.2s ease;
+  }
+
+  #chat-input::placeholder {
+    color: #9ca3af;
+  }
+
+  #chat-input:focus {
+    border-color: rgba(250, 204, 21, 0.45);
+    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.08);
+  }
+
+  #send-btn {
+    padding: 0 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    color: #111827;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  #send-btn:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+  }
+
+  .chat-whatsapp {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.25s ease;
+  }
+
+  .chat-whatsapp:hover {
+    filter: brightness(1.06);
+  }
+
+  @media (max-width: 480px) {
+    #prime-chat {
+      right: 12px;
+      bottom: 12px;
+    }
+
+    #chat-box {
+      width: calc(100vw - 24px);
+      height: 72vh;
+      max-height: 620px;
+      border-radius: 18px;
+    }
+
+    #chat-toggle {
+      width: 58px;
+      height: 58px;
+      font-size: 24px;
+    }
+
+    .quick-options {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // MENU MOBILE
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // CHAT
+  const chatToggle = document.getElementById('chat-toggle');
+  const chatBox = document.getElementById('chat-box');
+  const chatClose = document.getElementById('chat-close');
+  const chatBody = document.getElementById('chat-body');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-btn');
+  const whatsappLink = document.getElementById('whatsapp-link');
+  const quickButtons = document.querySelectorAll('.quick-btn');
+
+  if (chatToggle && chatBox) {
+    function openChat() {
+      chatBox.classList.remove('hidden');
+      chatToggle.style.display = 'none';
+    }
+
+    function closeChat() {
+      chatBox.classList.add('hidden');
+      chatToggle.style.display = 'flex';
+    }
+
+    function addUserMessage(text) {
+      if (!chatBody) return;
+      const msg = document.createElement('div');
+      msg.className = 'msg user';
+      msg.textContent = text;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function addBotMessage(text) {
+      if (!chatBody) return;
+      const msg = document.createElement('div');
+      msg.className = 'msg bot';
+      msg.innerHTML = text;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function updateWhatsAppLink(message) {
+      if (!whatsappLink) return;
+      const encoded = encodeURIComponent(message);
+      whatsappLink.href = `https://wa.me/5579998478570?text=${encoded}`;
+    }
+
+    function botReply(text) {
+      const lower = text.toLowerCase();
+
+      if (lower.includes('cftv') || lower.includes('camera') || lower.includes('câmera')) {
+        addBotMessage('Perfeito. Trabalhamos com <strong>CFTV, câmeras IP, DVR e NVR</strong>. Você pode continuar pelo WhatsApp para receber um orçamento rápido.');
+        return;
+      }
+
+      if (lower.includes('alarme')) {
+        addBotMessage('Ótimo. Fazemos instalação e manutenção de <strong>sistemas de alarme</strong> para residências e empresas.');
+        return;
+      }
+
+      if (lower.includes('cerca')) {
+        addBotMessage('Certo. Trabalhamos com <strong>cerca elétrica</strong> com instalação segura e suporte técnico.');
+        return;
+      }
+
+      if (lower.includes('elétrica') || lower.includes('eletrica')) {
+        addBotMessage('Perfeito. Também atendemos com <strong>instalações e manutenção elétrica</strong>.');
+        return;
+      }
+
+      if (lower.includes('orçamento') || lower.includes('orcamento')) {
+        addBotMessage('Claro. Clique em <strong>Continuar no WhatsApp</strong> para enviar sua solicitação e agilizar seu atendimento.');
+        return;
+      }
+
+      addBotMessage('Recebi sua mensagem. Para um atendimento mais rápido e envio de orçamento, clique em <strong>Continuar no WhatsApp</strong>.');
+    }
+
+    function handleMessage(text) {
+      if (!text || !text.trim()) return;
+      addUserMessage(text);
+      updateWhatsAppLink(text);
+      if (chatInput) chatInput.value = '';
+      setTimeout(() => botReply(text), 500);
+    }
+
+    chatToggle.addEventListener('click', openChat);
+
+    if (chatClose) {
+      chatClose.addEventListener('click', closeChat);
+    }
+
+    if (sendBtn) {
+      sendBtn.addEventListener('click', function () {
+        handleMessage(chatInput.value);
+      });
+    }
+
+    if (chatInput) {
+      chatInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          handleMessage(chatInput.value);
+        }
+      });
+    }
+
+    quickButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        handleMessage(btn.dataset.message);
+      });
+    });
+  }
+});
+</script>
+
 </body>
 </html>
