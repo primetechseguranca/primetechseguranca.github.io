@@ -1,871 +1,369 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PrimeTech | Segurança Eletrônica e Soluções Elétricas</title>
-    <meta name="description" content="PrimeTech - Soluções inteligentes em segurança eletrônica e elétrica. CFTV, alarmes, cerca elétrica, interfone, fechadura eletrônica, instalações e manutenção - Alagoas - Sergipe." />
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link data-default-icon="https://i.imgur.com/Mz1EcZS.png" rel="icon" sizes="192x192" href="https://i.imgur.com/Mz1EcZS.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrimeTech | Segurança Eletrônica e Soluções Elétricas</title>
+  <meta
+    name="description"
+    content="PrimeTech - Soluções inteligentes em segurança eletrônica e elétrica. CFTV, alarmes, cerca elétrica, interfone, fechadura eletrônica, instalações e manutenção - Alagoas - Sergipe."
+  />
 
-    <style>
-        :root {
-            --pt-black: #05070d;
-            --pt-black-soft: #0b0f19;
-            --pt-dark: #111827;
-            --pt-gold: #facc15;
-            --pt-gold-strong: #f59e0b;
-            --pt-silver: #e5e7eb;
-            --pt-silver-dark: #9ca3af;
-        }
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--pt-black-soft);
-            color: #e5e7eb;
-        }
+  <link
+    data-default-icon="https://i.imgur.com/Mz1EcZS.png"
+    rel="icon"
+    sizes="192x192"
+    href="https://i.imgur.com/Mz1EcZS.png"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
-        .hero-bg {
-            background:
-                radial-gradient(circle at top left, rgba(250, 204, 21, 0.14), transparent 30%),
-                radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.10), transparent 25%),
-                linear-gradient(135deg, #020617 0%, #0b0f19 48%, #111827 100%);
-        }
-
-        .glass {
-            background: rgba(17, 24, 39, 0.72);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(250, 204, 21, 0.14);
-            transition: all 0.3s ease;
-        }
-
-        .glass:hover {
-            border-color: rgba(250, 204, 21, 0.45);
-            box-shadow: 0 0 22px rgba(250, 204, 21, 0.10);
-        }
-
-        .section-title {
-            color: #ffffff;
-        }
-
-        .section-subtitle {
-            color: #9ca3af;
-        }
-
-        .service-card:hover,
-        .feature-card:hover {
-            transform: translateY(-6px);
-            transition: all 0.3s ease;
-            border-color: rgba(250, 204, 21, 0.45);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.28);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #facc15, #f59e0b);
-            color: #000;
-        }
-
-        .btn-primary:hover {
-            filter: brightness(1.08);
-        }
-
-        .btn-outline {
-            border: 1px solid rgba(250, 204, 21, 0.28);
-            color: #facc15;
-        }
-
-        .btn-outline:hover {
-            background: rgba(250, 204, 21, 0.08);
-            border-color: #facc15;
-            color: #ffffff;
-        }
-
-        .text-metal {
-            background: linear-gradient(90deg, #cfd4dc 0%, #ffffff 45%, #b5bcc6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gold-divider {
-            width: 72px;
-            height: 3px;
-            margin: 0 auto;
-            border-radius: 999px;
-            background: linear-gradient(90deg, #f59e0b, #facc15);
-        }
-    </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="antialiased">
 
-    <!-- HEADER -->
-    <header class="sticky top-0 z-50 border-b border-yellow-400/10 bg-slate-950/80 backdrop-blur-md">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#home" class="text-2xl font-extrabold tracking-wide">
-                <span class="text-metal">Prime</span><span class="text-yellow-400">Tech</span>
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-yellow-400/10 bg-slate-950/80 backdrop-blur-md">
+    <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="text-2xl font-extrabold tracking-wide">
+        <span class="text-metal">Prime</span><span class="text-yellow-400">Tech</span>
+      </a>
+
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="text-gray-300 hover:text-yellow-400 transition-colors">Início</a>
+        <a href="#about" class="text-gray-300 hover:text-yellow-400 transition-colors">Sobre</a>
+        <a href="#services" class="text-gray-300 hover:text-yellow-400 transition-colors">Serviços</a>
+        <a href="#differentials" class="text-gray-300 hover:text-yellow-400 transition-colors">Diferenciais</a>
+        <a href="#contact" class="text-gray-300 hover:text-yellow-400 transition-colors">Contato</a>
+      </div>
+
+      <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none" aria-label="Abrir menu">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 bg-slate-950/95">
+      <a href="#home" class="block text-gray-300 hover:text-yellow-400 transition-colors">Início</a>
+      <a href="#about" class="block text-gray-300 hover:text-yellow-400 transition-colors">Sobre</a>
+      <a href="#services" class="block text-gray-300 hover:text-yellow-400 transition-colors">Serviços</a>
+      <a href="#differentials" class="block text-gray-300 hover:text-yellow-400 transition-colors">Diferenciais</a>
+      <a href="#contact" class="block text-gray-300 hover:text-yellow-400 transition-colors">Contato</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero-bg">
+    <div class="container mx-auto px-6 py-20 md:py-28">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="inline-block px-4 py-2 rounded-full bg-yellow-400/10 text-yellow-300 text-sm font-semibold border border-yellow-400/20 mb-6">
+            Segurança Eletrônica e Soluções Elétricas
+          </span>
+
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white mb-6">
+            <span class="text-metal">Prime</span><span class="text-yellow-400">Tech</span>
+            <span class="block text-yellow-400">Proteção, tecnologia e confiança</span>
+          </h1>
+
+          <p class="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">
+            Soluções inteligentes para residências, comércios e empresas. Trabalhamos com instalação, manutenção e suporte em sistemas de segurança eletrônica e serviços elétricos.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 mb-10">
+            <a href="#services" class="btn-outline px-6 py-3 rounded-lg font-semibold text-center transition-all">
+              Ver Serviços
             </a>
+          </div>
 
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="text-gray-300 hover:text-yellow-400 transition-colors">Início</a>
-                <a href="#about" class="text-gray-300 hover:text-yellow-400 transition-colors">Sobre</a>
-                <a href="#services" class="text-gray-300 hover:text-yellow-400 transition-colors">Serviços</a>
-                <a href="#differentials" class="text-gray-300 hover:text-yellow-400 transition-colors">Diferenciais</a>
-                <a href="#contact" class="text-gray-300 hover:text-yellow-400 transition-colors">Contato</a>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="glass rounded-xl p-4">
+              <h3 class="text-2xl font-bold text-yellow-400">2</h3>
+              <p class="text-sm text-gray-300">Estados atendidos</p>
             </div>
-
-            <div class="hidden md:block">
-                
+            <div class="glass rounded-xl p-4">
+              <h3 class="text-2xl font-bold text-yellow-400">100%</h3>
+              <p class="text-sm text-gray-300">Foco em qualidade</p>
             </div>
-
-            <button id="menu-btn" class="md:hidden text-gray-300 focus:outline-none">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </nav>
-
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3 bg-slate-950/95">
-            <a href="#home" class="block text-gray-300 hover:text-yellow-400 transition-colors">Início</a>
-            <a href="#about" class="block text-gray-300 hover:text-yellow-400 transition-colors">Sobre</a>
-            <a href="#services" class="block text-gray-300 hover:text-yellow-400 transition-colors">Serviços</a>
-            <a href="#differentials" class="block text-gray-300 hover:text-yellow-400 transition-colors">Diferenciais</a>
-            <a href="#contact" class="block text-gray-300 hover:text-yellow-400 transition-colors">Contato</a>
-            
+          </div>
         </div>
-    </header>
 
-    <!-- HERO -->
-    <section id="home" class="hero-bg">
-        <div class="container mx-auto px-6 py-20 md:py-28">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="inline-block px-4 py-2 rounded-full bg-yellow-400/10 text-yellow-300 text-sm font-semibold border border-yellow-400/20 mb-6">
-                        Segurança Eletrônica e Soluções Elétricas
-                    </span>
+        <div class="glass rounded-3xl p-8 md:p-10 shadow-2xl">
+          <h2 class="text-2xl font-bold text-white mb-6">Atendimento especializado</h2>
 
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white mb-6">
-                        <span class="text-metal">Prime</span><span class="text-yellow-400">Tech</span>
-                        <span class="block text-yellow-400">Proteção, tecnologia e confiança</span>
-                    </h1>
-
-                    <p class="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">
-                        Soluções inteligentes para residências, comércios e empresas. Trabalhamos com instalação, manutenção e suporte em sistemas de segurança eletrônica e serviços elétricos.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row gap-4 mb-10">
-                        <a href="#services" class="btn-outline px-6 py-3 rounded-lg font-semibold text-center transition-all">
-                            Ver Serviços
-                        </a>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div class="glass rounded-xl p-4">
-                            <h3 class="text-2xl font-bold text-yellow-400">2</h3>
-                            <p class="text-sm text-gray-300">Estados atendidos</p>
-                        </div>
-                        <div class="glass rounded-xl p-4">
-                            <h3 class="text-2xl font-bold text-yellow-400">100%</h3>
-                            <p class="text-sm text-gray-300">Foco em qualidade</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-3xl p-8 md:p-10 shadow-2xl">
-                    <h2 class="text-2xl font-bold text-white mb-6">Atendimento especializado</h2>
-
-                    <div class="space-y-4 text-gray-300">
-                        <div class="flex items-start gap-3">
-                            <span class="text-yellow-400 text-xl">✔</span>
-                            <p>Projetos e consultoria técnica</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="text-yellow-400 text-xl">✔</span>
-                            <p>Instalações e manutenção elétrica</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="text-yellow-400 text-xl">✔</span>
-                            <p>Sistemas de CFTV e alarmes</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="text-yellow-400 text-xl">✔</span>
-                            <p>Cerca elétrica, interfone e fechadura eletrônica</p>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <span class="text-yellow-400 text-xl">✔</span>
-                            <p>Atendimento com qualidade, confiança e segurança</p>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 pt-6 border-t border-yellow-400/10">
-                        <p class="text-gray-400 text-sm mb-2">Responsável Técnico</p>
-                        <p class="text-white font-semibold text-lg">Joelson J. Santos</p>
-                        <p class="text-gray-300">Técnico em Eletrotécnica | CRT-03</p>
-                    </div>
-                </div>
+          <div class="space-y-4 text-gray-300">
+            <div class="flex items-start gap-3">
+              <span class="text-yellow-400 text-xl">✔</span>
+              <p>Projetos e consultoria técnica</p>
             </div>
+            <div class="flex items-start gap-3">
+              <span class="text-yellow-400 text-xl">✔</span>
+              <p>Instalações e manutenção elétrica</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-yellow-400 text-xl">✔</span>
+              <p>Sistemas de CFTV e alarmes</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-yellow-400 text-xl">✔</span>
+              <p>Cerca elétrica, interfone e fechadura eletrônica</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-yellow-400 text-xl">✔</span>
+              <p>Atendimento com qualidade, confiança e segurança</p>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-yellow-400/10">
+            <p class="text-gray-400 text-sm mb-2">Responsável Técnico</p>
+            <p class="text-white font-semibold text-lg">Joelson J. Santos</p>
+            <p class="text-gray-300">Técnico em Eletrotécnica | CRT-03</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- SOBRE -->
-    <section id="about" class="py-20 bg-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Sobre a PrimeTech</h2>
-                <div class="gold-divider mb-6"></div>
-                <p class="section-subtitle text-lg leading-relaxed">
-                    A PrimeTech atua com soluções modernas em segurança eletrônica e elétrica, oferecendo serviços personalizados para proteger o que é mais importante: sua família, seu patrimônio e seu negócio.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 mt-12">
-                <div class="feature-card glass rounded-2xl p-6">
-                    <h3 class="text-xl font-bold text-white mb-3">Nossa missão</h3>
-                    <p class="text-gray-300">
-                        Oferecer soluções eficientes, seguras e inovadoras, com atendimento de excelência e foco total na satisfação do cliente.
-                    </p>
-                </div>
-                <div class="feature-card glass rounded-2xl p-6">
-                    <h3 class="text-xl font-bold text-white mb-3">Nosso compromisso</h3>
-                    <p class="text-gray-300">
-                        Trabalhar com responsabilidade, qualidade técnica e atenção aos detalhes em cada instalação e manutenção realizada.
-                    </p>
-                </div>
-                <div class="feature-card glass rounded-2xl p-6">
-                    <h3 class="text-xl font-bold text-white mb-3">Nosso foco</h3>
-                    <p class="text-gray-300">
-                        Levar segurança, praticidade e confiança para residências, condomínios, comércios e empresas.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVIÇOS -->
-    <section id="services" class="py-20 bg-slate-950">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Nossos Serviços</h2>
-                <div class="gold-divider mb-6"></div>
-                <p class="section-subtitle text-lg">
-                    Soluções completas em segurança eletrônica e elétrica com suporte profissional do início ao fim.
-                </p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
-                    <h3 class="text-xl font-bold text-white mb-3">Projetos e Consultoria</h3>
-                    <p class="text-gray-300">
-                        Planejamento técnico e orientação especializada para cada necessidade.
-                    </p>
-                </div>
-
-                <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
-                    <h3 class="text-xl font-bold text-white mb-3">Instalações e Manutenção</h3>
-                    <p class="text-gray-300">
-                        Serviços elétricos e manutenção preventiva e corretiva com padrão profissional.
-                    </p>
-                </div>
-
-                <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
-                    <h3 class="text-xl font-bold text-white mb-3">Sistema de CFTV</h3>
-                    <p class="text-gray-300">
-                        Instalação e configuração de câmeras para monitoramento residencial e comercial.
-                    </p>
-                </div>
-
-                <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
-                    <h3 class="text-xl font-bold text-white mb-3">Sistema de Alarmes</h3>
-                    <p class="text-gray-300">
-                        Proteção ativa contra invasões com equipamentos confiáveis e configuração adequada.
-                    </p>
-                </div>
-
-                <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
-                    <h3 class="text-xl font-bold text-white mb-3">Cerca Elétrica</h3>
-                    <p class="text-gray-300">
-                        Reforço de segurança perimetral para residências, empresas e propriedades.
-                    </p>
-                </div>
-
-                <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
-                    <h3 class="text-xl font-bold text-white mb-3">Interfone e Fechadura Eletrônica</h3>
-                    <p class="text-gray-300">
-                        Mais praticidade, controle de acesso e segurança no dia a dia.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DIFERENCIAIS -->
-    <section id="differentials" class="py-20 bg-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-14">
-                <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Por que escolher a PrimeTech?</h2>
-                <div class="gold-divider mb-6"></div>
-                <p class="section-subtitle text-lg">
-                    Atendimento próximo, execução cuidadosa e compromisso real com a proteção do cliente.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="feature-card glass rounded-2xl p-6 text-center">
-                    <div class="text-3xl mb-4 text-yellow-400">⚡</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Qualidade</h3>
-                    <p class="text-gray-300">
-                        Serviços executados com técnica, organização e atenção aos detalhes.
-                    </p>
-                </div>
-
-                <div class="feature-card glass rounded-2xl p-6 text-center">
-                    <div class="text-3xl mb-4 text-yellow-400">🛡</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Confiança</h3>
-                    <p class="text-gray-300">
-                        Relacionamento transparente e compromisso com a satisfação do cliente.
-                    </p>
-                </div>
-
-                <div class="feature-card glass rounded-2xl p-6 text-center">
-                    <div class="text-3xl mb-4 text-yellow-400">🔒</div>
-                    <h3 class="text-xl font-bold text-white mb-3">Segurança</h3>
-                    <p class="text-gray-300">
-                        Soluções pensadas para proteger pessoas, patrimônios e operações.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ÁREA DE ATENDIMENTO -->
-<!-- ÁREA DE ATENDIMENTO -->
-<section class="py-20 bg-slate-950">
+  <!-- SOBRE -->
+  <section id="about" class="py-20 bg-slate-900">
     <div class="container mx-auto px-6">
-        <div class="glass max-w-5xl mx-auto rounded-3xl p-8 md:p-12 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Área de Atendimento</h2>
-            <div class="gold-divider mb-6"></div>
-            <p class="text-gray-300 text-lg mb-8">
-                Atendemos com foco, agilidade e responsabilidade nas seguintes regiões:
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
-                <div class="bg-white/5 border border-yellow-400/10 rounded-xl py-4 px-3 text-white font-semibold">
-                    Alagoas
-                </div>
-                <div class="bg-white/5 border border-yellow-400/10 rounded-xl py-4 px-3 text-white font-semibold">
-                    Sergipe
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- CONTATO -->
-    <section id="contact" class="py-20 bg-slate-900">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Fale com a PrimeTech</h2>
-                <div class="gold-divider mb-6"></div>
-                <p class="section-subtitle text-lg mb-10">
-                    Entre em contato para solicitar orçamento, tirar dúvidas ou conhecer a melhor solução para o seu projeto.
-                </p>
-
-                <div class="grid md:grid-cols-3 gap-6 text-left">
-                    <div class="glass rounded-2xl p-6">
-                        <h3 class="text-lg font-bold text-white mb-2">Telefone</h3>
-                        <p>
-                        <a href="https://wa.me/5579998478570" target="_blank" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                        (79) 99847-8570
-                        </a>
-                        </p>
-                    </div>
-                    <div class="glass rounded-2xl p-6">
-                        <h3 class="text-lg font-bold text-white mb-2">E-mail</h3>
-                        <p class="text-gray-300 break-words">
-                        <a href="mailto:primetech.seg@outlook.com" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                         primetech.seg@outlook.com
-                        </a>
-                        </p>
-                    </div>
-                    <div class="glass rounded-2xl p-6">
-                        <h3 class="text-lg font-bold text-white mb-2">Instagram</h3>
-                        <a href="https://www.instagram.com/primetech.seg" target="_blank" class="text-yellow-400 hover:text-yellow-300 transition-colors">
-                            @primetech.seg
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="border-t border-yellow-400/10 bg-slate-950">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p class="font-semibold text-lg mb-2">
-                <span class="text-metal">Prime</span><span class="text-yellow-400">Tech</span>
-            </p>
-            <p class="text-gray-400 mb-2">
-                Segurança Eletrônica e Soluções Elétricas
-            </p>
-            <p class="text-sm text-gray-500">
-                &copy; 2026 PrimeTech. Todos os direitos reservados.
-            </p>
-        </div>
-    </footer>
-
-    <!-- CHAT PRIME TECH -->
-<!-- CHAT PRIME TECH -->
-<div id="prime-chat">
-  <button id="chat-toggle" aria-label="Abrir chat">
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 10h8M8 14h5m-9 6 1.8-3.6A9 9 0 1 1 21 12a9 9 0 0 1-9 9 8.96 8.96 0 0 1-4.2-1.04L4 20Z"/>
-    </svg>
-  </button>
-
-  <div id="chat-box" class="chat-hidden">
-    <div class="chat-header">
-      <div>
-        <strong><span class="text-metal-chat">Prime</span><span class="text-gold-chat">Tech</span></strong>
-        <small>Atendimento online</small>
-      </div>
-      <button id="chat-close" aria-label="Fechar chat">✕</button>
-    </div>
-
-    <div class="chat-body" id="chat-body">
-      <div class="msg bot">
-        Olá 👋 Seja bem-vindo à <strong>PrimeTech</strong>.<br>
-        Como podemos ajudar você hoje?
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Sobre a PrimeTech</h2>
+        <div class="gold-divider mb-6"></div>
+        <p class="section-subtitle text-lg leading-relaxed">
+          A PrimeTech atua com soluções modernas em segurança eletrônica e elétrica, oferecendo serviços personalizados para proteger o que é mais importante: sua família, seu patrimônio e seu negócio.
+        </p>
       </div>
 
-      <div class="quick-options">
-        <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para CFTV.">CFTV</button>
-        <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para Alarme.">Alarme</button>
-        <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para Cerca Elétrica.">Cerca Elétrica</button>
-        <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para Serviço Elétrico.">Serviço Elétrico</button>
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        <div class="feature-card glass rounded-2xl p-6">
+          <h3 class="text-xl font-bold text-white mb-3">Nossa missão</h3>
+          <p class="text-gray-300">
+            Oferecer soluções eficientes, seguras e inovadoras, com atendimento de excelência e foco total na satisfação do cliente.
+          </p>
+        </div>
+        <div class="feature-card glass rounded-2xl p-6">
+          <h3 class="text-xl font-bold text-white mb-3">Nosso compromisso</h3>
+          <p class="text-gray-300">
+            Trabalhar com responsabilidade, qualidade técnica e atenção aos detalhes em cada instalação e manutenção realizada.
+          </p>
+        </div>
+        <div class="feature-card glass rounded-2xl p-6">
+          <h3 class="text-xl font-bold text-white mb-3">Nosso foco</h3>
+          <p class="text-gray-300">
+            Levar segurança, praticidade e confiança para residências, condomínios, comércios e empresas.
+          </p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="chat-footer">
-      <input type="text" id="chat-input" placeholder="Digite sua mensagem..." />
-      <button id="send-btn">Enviar</button>
+  <!-- SERVIÇOS -->
+  <section id="services" class="py-20 bg-slate-950">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Nossos Serviços</h2>
+        <div class="gold-divider mb-6"></div>
+        <p class="section-subtitle text-lg">
+          Soluções completas em segurança eletrônica e elétrica com suporte profissional do início ao fim.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">Projetos e Consultoria</h3>
+          <p class="text-gray-300">Planejamento técnico e orientação especializada para cada necessidade.</p>
+        </div>
+
+        <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">Instalações e Manutenção</h3>
+          <p class="text-gray-300">Serviços elétricos e manutenção preventiva e corretiva com padrão profissional.</p>
+        </div>
+
+        <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">Sistema de CFTV</h3>
+          <p class="text-gray-300">Instalação e configuração de câmeras para monitoramento residencial e comercial.</p>
+        </div>
+
+        <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">Sistema de Alarmes</h3>
+          <p class="text-gray-300">Proteção ativa contra invasões com equipamentos confiáveis e configuração adequada.</p>
+        </div>
+
+        <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">Cerca Elétrica</h3>
+          <p class="text-gray-300">Reforço de segurança perimetral para residências, empresas e propriedades.</p>
+        </div>
+
+        <div class="service-card glass rounded-2xl p-6 transition-all duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">Interfone e Fechadura Eletrônica</h3>
+          <p class="text-gray-300">Mais praticidade, controle de acesso e segurança no dia a dia.</p>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <a
-      id="whatsapp-link"
-      href="https://wa.me/5579998478570?text=Olá,%20vim%20pelo%20site%20da%20PrimeTech%20e%20quero%20mais%20informações."
-      target="_blank"
-      rel="noopener noreferrer"
-      class="chat-whatsapp"
-    >
-      Continuar no WhatsApp
-    </a>
+  <!-- DIFERENCIAIS -->
+  <section id="differentials" class="py-20 bg-slate-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Por que escolher a PrimeTech?</h2>
+        <div class="gold-divider mb-6"></div>
+        <p class="section-subtitle text-lg">
+          Atendimento próximo, execução cuidadosa e compromisso real com a proteção do cliente.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="feature-card glass rounded-2xl p-6 text-center">
+          <div class="text-3xl mb-4 text-yellow-400">⚡</div>
+          <h3 class="text-xl font-bold text-white mb-3">Qualidade</h3>
+          <p class="text-gray-300">Serviços executados com técnica, organização e atenção aos detalhes.</p>
+        </div>
+
+        <div class="feature-card glass rounded-2xl p-6 text-center">
+          <div class="text-3xl mb-4 text-yellow-400">🛡</div>
+          <h3 class="text-xl font-bold text-white mb-3">Confiança</h3>
+          <p class="text-gray-300">Relacionamento transparente e compromisso com a satisfação do cliente.</p>
+        </div>
+
+        <div class="feature-card glass rounded-2xl p-6 text-center">
+          <div class="text-3xl mb-4 text-yellow-400">🔒</div>
+          <h3 class="text-xl font-bold text-white mb-3">Segurança</h3>
+          <p class="text-gray-300">Soluções pensadas para proteger pessoas, patrimônios e operações.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÁREA DE ATENDIMENTO -->
+  <section class="py-20 bg-slate-950">
+    <div class="container mx-auto px-6">
+      <div class="glass max-w-5xl mx-auto rounded-3xl p-8 md:p-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Área de Atendimento</h2>
+        <div class="gold-divider mb-6"></div>
+        <p class="text-gray-300 text-lg mb-8">
+          Atendemos com foco, agilidade e responsabilidade nas seguintes regiões:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+          <div class="bg-white/5 border border-yellow-400/10 rounded-xl py-4 px-3 text-white font-semibold">
+            Alagoas
+          </div>
+          <div class="bg-white/5 border border-yellow-400/10 rounded-xl py-4 px-3 text-white font-semibold">
+            Sergipe
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contact" class="py-20 bg-slate-900">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="section-title text-3xl md:text-4xl font-bold mb-4">Fale com a PrimeTech</h2>
+        <div class="gold-divider mb-6"></div>
+        <p class="section-subtitle text-lg mb-10">
+          Entre em contato para solicitar orçamento, tirar dúvidas ou conhecer a melhor solução para o seu projeto.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6 text-left">
+          <div class="glass rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-2">Telefone</h3>
+            <p>
+              <a href="https://wa.me/5579998478570" target="_blank" class="text-yellow-400 hover:text-yellow-300 transition-colors">
+                (79) 99847-8570
+              </a>
+            </p>
+          </div>
+
+          <div class="glass rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-2">E-mail</h3>
+            <p class="text-gray-300 break-words">
+              <a href="mailto:primetech.seg@outlook.com" class="text-yellow-400 hover:text-yellow-300 transition-colors">
+                primetech.seg@outlook.com
+              </a>
+            </p>
+          </div>
+
+          <div class="glass rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-2">Instagram</h3>
+            <a href="https://www.instagram.com/primetech.seg" target="_blank" class="text-yellow-400 hover:text-yellow-300 transition-colors">
+              @primetech.seg
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-yellow-400/10 bg-slate-950">
+    <div class="container mx-auto px-6 py-8 text-center">
+      <p class="font-semibold text-lg mb-2">
+        <span class="text-metal">Prime</span><span class="text-yellow-400">Tech</span>
+      </p>
+      <p class="text-gray-400 mb-2">Segurança Eletrônica e Soluções Elétricas</p>
+      <p class="text-sm text-gray-500">&copy; 2026 PrimeTech. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- CHAT PRIME TECH -->
+  <div id="prime-chat">
+    <button id="chat-toggle" aria-label="Abrir chat">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 10h8M8 14h5m-9 6 1.8-3.6A9 9 0 1 1 21 12a9 9 0 0 1-9 9 8.96 8.96 0 0 1-4.2-1.04L4 20Z"/>
+      </svg>
+    </button>
+
+    <div id="chat-box" class="chat-hidden">
+      <div class="chat-header">
+        <div>
+          <strong><span class="text-metal-chat">Prime</span><span class="text-gold-chat">Tech</span></strong>
+          <small>Atendimento online</small>
+        </div>
+        <button id="chat-close" aria-label="Fechar chat">✕</button>
+      </div>
+
+      <div class="chat-body" id="chat-body">
+        <div class="msg bot">
+          Olá 👋 Seja bem-vindo à <strong>PrimeTech</strong>.<br />
+          Como podemos ajudar você hoje?
+        </div>
+
+        <div class="quick-options">
+          <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para CFTV.">CFTV</button>
+          <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para Alarme.">Alarme</button>
+          <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para Cerca Elétrica.">Cerca Elétrica</button>
+          <button class="quick-btn" data-message="Olá, vim pelo site e quero um orçamento para Serviço Elétrico.">Serviço Elétrico</button>
+        </div>
+      </div>
+
+      <div class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Digite sua mensagem..." />
+        <button id="send-btn">Enviar</button>
+      </div>
+
+      <a
+        id="whatsapp-link"
+        href="https://wa.me/5579998478570?text=Olá,%20vim%20pelo%20site%20da%20PrimeTech%20e%20quero%20mais%20informações."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="chat-whatsapp"
+      >
+        Continuar no WhatsApp
+      </a>
+    </div>
   </div>
-</div>
 
-<style>
-  #prime-chat {
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
-    z-index: 9999;
-    font-family: 'Inter', sans-serif;
-  }
-
-  #chat-toggle {
-    width: 64px;
-    height: 64px;
-    border: 1px solid rgba(250, 204, 21, 0.22);
-    border-radius: 999px;
-    background:
-      radial-gradient(circle at top left, rgba(250, 204, 21, 0.18), transparent 35%),
-      linear-gradient(135deg, #020617 0%, #0b0f19 55%, #111827 100%);
-    color: #facc15;
-    font-size: 28px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:
-      0 10px 30px rgba(0,0,0,0.35),
-      0 0 0 1px rgba(250, 204, 21, 0.06) inset;
-    transition: all 0.3s ease;
-  }
-
-  #chat-toggle:hover {
-    transform: translateY(-2px) scale(1.03);
-    border-color: rgba(250, 204, 21, 0.45);
-    box-shadow:
-      0 16px 34px rgba(0,0,0,0.42),
-      0 0 20px rgba(250, 204, 21, 0.10);
-  }
-
-  #chat-box {
-    width: 360px;
-    max-width: calc(100vw - 24px);
-    height: 540px;
-    margin-bottom: 14px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border-radius: 22px;
-    border: 1px solid rgba(250, 204, 21, 0.14);
-    background: rgba(17, 24, 39, 0.82);
-    backdrop-filter: blur(14px);
-    box-shadow:
-      0 25px 60px rgba(0,0,0,0.45),
-      0 0 0 1px rgba(250, 204, 21, 0.04) inset;
-  }
-
-  .chat-hidden {
-    display: none !important;
-  }
-
-  .chat-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 18px;
-    border-bottom: 1px solid rgba(250, 204, 21, 0.12);
-    background:
-      radial-gradient(circle at top left, rgba(250, 204, 21, 0.10), transparent 35%),
-      linear-gradient(180deg, rgba(2, 6, 23, 0.92), rgba(11, 15, 25, 0.88));
-  }
-
-  .chat-header strong {
-    display: block;
-    font-size: 17px;
-    font-weight: 800;
-    letter-spacing: 0.2px;
-  }
-
-  .chat-header small {
-    color: #9ca3af;
-    font-size: 12px;
-  }
-
-  .text-metal-chat {
-    background: linear-gradient(90deg, #cfd4dc 0%, #ffffff 45%, #b5bcc6 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .text-gold-chat {
-    color: #facc15;
-  }
-
-  #chat-close {
-    width: 34px;
-    height: 34px;
-    border-radius: 10px;
-    border: 1px solid rgba(250, 204, 21, 0.12);
-    background: rgba(255,255,255,0.03);
-    color: #e5e7eb;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  #chat-close:hover {
-    border-color: rgba(250, 204, 21, 0.35);
-    color: #facc15;
-    background: rgba(250, 204, 21, 0.05);
-  }
-
-  .chat-body {
-    flex: 1;
-    padding: 16px;
-    overflow-y: auto;
-    background:
-      radial-gradient(circle at top right, rgba(250, 204, 21, 0.06), transparent 28%),
-      radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.05), transparent 24%),
-      linear-gradient(180deg, rgba(11, 15, 25, 0.98), rgba(17, 24, 39, 0.96));
-  }
-
-  .chat-body::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .chat-body::-webkit-scrollbar-thumb {
-    background: rgba(250, 204, 21, 0.18);
-    border-radius: 999px;
-  }
-
-  .msg {
-    max-width: 88%;
-    padding: 12px 14px;
-    margin-bottom: 12px;
-    border-radius: 16px;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .msg.bot {
-    color: #e5e7eb;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(250, 204, 21, 0.10);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  }
-
-  .msg.user {
-    margin-left: auto;
-    color: #111827;
-    background: linear-gradient(135deg, #facc15, #f59e0b);
-    font-weight: 600;
-    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.18);
-  }
-
-  .quick-options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .quick-btn {
-    padding: 11px 10px;
-    border-radius: 12px;
-    border: 1px solid rgba(250, 204, 21, 0.14);
-    background: rgba(255,255,255,0.03);
-    color: #e5e7eb;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-
-  .quick-btn:hover {
-    transform: translateY(-2px);
-    border-color: rgba(250, 204, 21, 0.45);
-    background: rgba(250, 204, 21, 0.08);
-    color: #ffffff;
-  }
-
-  .chat-footer {
-    display: flex;
-    gap: 8px;
-    padding: 12px;
-    border-top: 1px solid rgba(250, 204, 21, 0.10);
-    background: rgba(2, 6, 23, 0.92);
-  }
-
-  #chat-input {
-    flex: 1;
-    padding: 12px 14px;
-    border-radius: 12px;
-    border: 1px solid rgba(250, 204, 21, 0.12);
-    background: rgba(255,255,255,0.04);
-    color: #e5e7eb;
-    outline: none;
-    transition: all 0.2s ease;
-  }
-
-  #chat-input::placeholder {
-    color: #9ca3af;
-  }
-
-  #chat-input:focus {
-    border-color: rgba(250, 204, 21, 0.45);
-    box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.08);
-  }
-
-  #send-btn {
-    padding: 0 16px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #facc15, #f59e0b);
-    color: #111827;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-
-  #send-btn:hover {
-    filter: brightness(1.06);
-    transform: translateY(-1px);
-  }
-
-  .chat-whatsapp {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    padding: 14px 16px;
-    font-size: 14px;
-    font-weight: 700;
-    color: #111827;
-    background: linear-gradient(135deg, #facc15, #f59e0b);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    transition: all 0.25s ease;
-  }
-
-  .chat-whatsapp:hover {
-    filter: brightness(1.06);
-  }
-
-  @media (max-width: 480px) {
-    #prime-chat {
-      right: 12px;
-      bottom: 12px;
-    }
-
-    #chat-box {
-      width: calc(100vw - 24px);
-      height: 72vh;
-      max-height: 620px;
-      border-radius: 18px;
-    }
-
-    #chat-toggle {
-      width: 58px;
-      height: 58px;
-      font-size: 24px;
-    }
-
-    .quick-options {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // MENU MOBILE
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = document.querySelectorAll('#mobile-menu a');
-
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', function () {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    mobileLinks.forEach(function (link) {
-      link.addEventListener('click', function () {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-  }
-
-  // CHAT
-  const chatToggle = document.getElementById('chat-toggle');
-  const chatBox = document.getElementById('chat-box');
-  const chatClose = document.getElementById('chat-close');
-  const chatBody = document.getElementById('chat-body');
-  const chatInput = document.getElementById('chat-input');
-  const sendBtn = document.getElementById('send-btn');
-  const whatsappLink = document.getElementById('whatsapp-link');
-  const quickButtons = document.querySelectorAll('.quick-btn');
-
-  if (chatToggle && chatBox) {
-    function openChat() {
-      chatBox.classList.remove('chat-hidden');
-      chatBox.style.display = 'flex';
-      chatToggle.style.display = 'none';
-    }
-
-    function closeChat() {
-      chatBox.classList.add('chat-hidden');
-      chatBox.style.display = '';
-      chatToggle.style.display = 'flex';
-    }
-
-    function addUserMessage(text) {
-      if (!chatBody) return;
-      const msg = document.createElement('div');
-      msg.className = 'msg user';
-      msg.textContent = text;
-      chatBody.appendChild(msg);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    function addBotMessage(text) {
-      if (!chatBody) return;
-      const msg = document.createElement('div');
-      msg.className = 'msg bot';
-      msg.innerHTML = text;
-      chatBody.appendChild(msg);
-      chatBody.scrollTop = chatBody.scrollHeight;
-    }
-
-    function updateWhatsAppLink(message) {
-      if (!whatsappLink) return;
-      const encoded = encodeURIComponent(message);
-      whatsappLink.href = `https://wa.me/5579998478570?text=${encoded}`;
-    }
-
-    function botReply(text) {
-      const lower = text.toLowerCase();
-
-      if (lower.includes('cftv') || lower.includes('camera') || lower.includes('câmera')) {
-        addBotMessage('Perfeito. Trabalhamos com <strong>CFTV, câmeras IP, DVR e NVR</strong>. Você pode continuar pelo WhatsApp para receber um orçamento rápido.');
-        return;
-      }
-
-      if (lower.includes('alarme')) {
-        addBotMessage('Ótimo. Fazemos instalação e manutenção de <strong>sistemas de alarme</strong> para residências e empresas.');
-        return;
-      }
-
-      if (lower.includes('cerca')) {
-        addBotMessage('Certo. Trabalhamos com <strong>cerca elétrica</strong> com instalação segura e suporte técnico.');
-        return;
-      }
-
-      if (lower.includes('elétrica') || lower.includes('eletrica') || lower.includes('serviço elétrico') || lower.includes('servico eletrico')) {
-        addBotMessage('Perfeito. Também atendemos com <strong>instalações e manutenção elétrica</strong>.');
-        return;
-      }
-
-      if (lower.includes('orçamento') || lower.includes('orcamento')) {
-        addBotMessage('Claro. Clique em <strong>Continuar no WhatsApp</strong> para enviar sua solicitação e agilizar seu atendimento.');
-        return;
-      }
-
-      addBotMessage('Recebi sua mensagem. Para um atendimento mais rápido e envio de orçamento, clique em <strong>Continuar no WhatsApp</strong>.');
-    }
-
-    function handleMessage(text) {
-      if (!text || !text.trim()) return;
-      addUserMessage(text);
-      updateWhatsAppLink(text);
-      if (chatInput) chatInput.value = '';
-      setTimeout(function () {
-        botReply(text);
-      }, 400);
-    }
-
-    chatToggle.addEventListener('click', openChat);
-
-    if (chatClose) {
-      chatClose.addEventListener('click', closeChat);
-    }
-
-    if (sendBtn && chatInput) {
-      sendBtn.addEventListener('click', function () {
-        handleMessage(chatInput.value);
-      });
-    }
-
-    if (chatInput) {
-      chatInput.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') {
-          handleMessage(chatInput.value);
-        }
-      });
-    }
-
-    quickButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        handleMessage(btn.dataset.message);
-      });
-    });
-  }
-});
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
