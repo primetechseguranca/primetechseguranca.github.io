@@ -736,10 +736,17 @@ document.addEventListener('DOMContentLoaded', function () {
   // MENU MOBILE
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('#mobile-menu a');
 
   if (menuBtn && mobileMenu) {
     menuBtn.addEventListener('click', function () {
       mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.add('hidden');
+      });
     });
   }
 
@@ -755,12 +762,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (chatToggle && chatBox) {
     function openChat() {
-      chatBox.classList.remove('hidden');
+      chatBox.classList.remove('chat-hidden');
+      chatBox.style.display = 'flex';
       chatToggle.style.display = 'none';
     }
 
     function closeChat() {
-      chatBox.classList.add('hidden');
+      chatBox.classList.add('chat-hidden');
+      chatBox.style.display = '';
       chatToggle.style.display = 'flex';
     }
 
@@ -806,7 +815,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      if (lower.includes('elétrica') || lower.includes('eletrica')) {
+      if (lower.includes('elétrica') || lower.includes('eletrica') || lower.includes('serviço elétrico') || lower.includes('servico eletrico')) {
         addBotMessage('Perfeito. Também atendemos com <strong>instalações e manutenção elétrica</strong>.');
         return;
       }
@@ -824,7 +833,9 @@ document.addEventListener('DOMContentLoaded', function () {
       addUserMessage(text);
       updateWhatsAppLink(text);
       if (chatInput) chatInput.value = '';
-      setTimeout(() => botReply(text), 500);
+      setTimeout(function () {
+        botReply(text);
+      }, 400);
     }
 
     chatToggle.addEventListener('click', openChat);
@@ -833,7 +844,7 @@ document.addEventListener('DOMContentLoaded', function () {
       chatClose.addEventListener('click', closeChat);
     }
 
-    if (sendBtn) {
+    if (sendBtn && chatInput) {
       sendBtn.addEventListener('click', function () {
         handleMessage(chatInput.value);
       });
