@@ -267,8 +267,9 @@
 
     .pdf-header {
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       border-bottom: 4px solid var(--yellow);
       padding-bottom: 16px;
       gap: 20px;
@@ -424,8 +425,10 @@
       .item-row { grid-template-columns: 1fr; border: 1px solid var(--line); padding: 10px; border-radius: 14px; }
       #pdfArea { width: 100%; padding: 22px; }
       .pdf-two { grid-template-columns: 1fr; }
-      .pdf-header { flex-direction: column; align-items: flex-start; }
-      .pdf-number { text-align: left; }
+      .pdf-header { flex-direction: row; align-items: flex-start; justify-content: space-between; }
+      .pdf-brand { flex: 1; min-width: 0; }
+      .pdf-brand img { width: 82px; height: 82px; }
+      .pdf-number { text-align: right; margin-left: 12px; min-width: 128px; }
       .pdf-total-box { width: 100%; }
     }
 
@@ -440,7 +443,7 @@
   <div class="app">
     <header class="topbar">
       <div class="brand">
-        <img id="appLogo" alt="Logo PrimeTech" src="logo-primetech.png" onerror="this.src='https://i.imgur.com/hop3LpT.png'" />
+        <img id="appLogo" alt="Logo PrimeTech" src="logo-primetech.png" onerror="this.src='https://i.imgur.com/Mz1EcZS.png'" />
         <div>
           <h1>PrimeTech Orçamentos</h1>
           <p>Segurança Eletrônica • Elétrica • CFTV • Alarmes • Manutenção</p>
@@ -553,7 +556,7 @@
   <div id="pdfArea">
     <div class="pdf-header">
       <div class="pdf-brand">
-        <img id="pdfLogo" alt="Logo PrimeTech" src="logo-primetech.png" onerror="this.src='https://i.imgur.com/hop3LpT.png'" />
+        <img id="pdfLogo" alt="Logo PrimeTech" src="logo-primetech.png" onerror="this.src='https://i.imgur.com/Mz1EcZS.png'" />
         <div>
           <h2>Prime<span>Tech</span></h2>
           <p>SOLUÇÕES EM SEGURANÇA E ELÉTRICA</p>
@@ -562,14 +565,15 @@
             Fone: (79) 99847-8570<br>
             www.primetech.seg.br | @primetech.seg
           </div>
-          </div>
-          </div>
+        </div>
+      </div>
       <div class="pdf-number">
         <strong id="pdfQuoteNumber">ORÇ-0001</strong>
         <div>Data: <span id="pdfDate"></span></div>
         <div>Validade: <span id="pdfValidity"></span></div>
-        </div>
       </div>
+    </div>
+
     <div class="pdf-box">
       <div class="pdf-title">Cliente</div>
       <div><strong id="pdfClientName">Cliente não informado</strong></div>
@@ -646,8 +650,15 @@
 
     function nextQuoteNumber() {
       const saved = getSaved();
-      const next = saved.length + 1;
-      return `ORÇ-${String(next).padStart(4, '300')}`;
+      const startNumber = 301;
+      const numbers = saved
+        .map(q => String(q.id || '').match(/[0-9]+/))
+        .filter(Boolean)
+        .map(match => Number(match[0]))
+        .filter(num => num >= startNumber && num < 10000);
+
+      const next = numbers.length ? Math.max(...numbers) + 1 : startNumber;
+      return 'ORÇ-' + String(next).padStart(4, '0');
     }
 
     function addItem(item = {}) {
