@@ -258,9 +258,9 @@
       background: white;
       color: #111;
       width: 794px;
-      min-height: 1123px;
+      min-height: auto;
       margin: 0 auto;
-      padding: 38px;
+      padding: 32px;
       border-radius: 4px;
       box-shadow: var(--shadow);
     }
@@ -330,8 +330,10 @@
     .pdf-box {
       border: 1px solid #e5e7eb;
       border-radius: 12px;
-      padding: 14px;
-      margin-top: 18px;
+      padding: 12px;
+      margin-top: 14px;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     .pdf-two {
@@ -351,8 +353,13 @@
     .pdf-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 16px;
-      font-size: 13px;
+      margin-top: 14px;
+      font-size: 12px;
+    }
+
+    .pdf-table tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     .pdf-table th {
@@ -376,10 +383,12 @@
     .pdf-total-box {
       margin-left: auto;
       width: 320px;
-      margin-top: 18px;
+      margin-top: 14px;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid #e5e7eb;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     .pdf-total-row {
@@ -398,12 +407,14 @@
     }
 
     .pdf-footer {
-      margin-top: 28px;
-      padding-top: 16px;
+      margin-top: 18px;
+      padding-top: 12px;
       border-top: 1px solid #e5e7eb;
-      font-size: 12px;
+      font-size: 10.5px;
       color: #4b5563;
-      line-height: 1.55;
+      line-height: 1.45;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
 
     .badge {
@@ -840,11 +851,12 @@
       updateAll();
       const filename = `${$('quoteNumber').value || 'orcamento'}-${($('clientName').value || 'cliente').replaceAll(' ', '-')}.pdf`;
       const opt = {
-        margin: 0,
+        margin: [10, 10, 10, 10],
         filename,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait' }
+        html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
+        jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['css', 'legacy'], avoid: ['.pdf-header', '.pdf-box', '.pdf-total-box', '.pdf-footer', 'tr'] }
       };
       html2pdf().set(opt).from($('pdfArea')).save();
     }
