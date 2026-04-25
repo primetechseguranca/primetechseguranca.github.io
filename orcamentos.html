@@ -565,7 +565,7 @@
           </div>
           </div>
       <div class="pdf-number">
-        <strong id="pdfQuoteNumber">ORÇ-0001</strong>
+        <strong id="pdfQuoteNumber">ORÇ-0301</strong>
         <div>Data: <span id="pdfDate"></span></div>
         <div>Validade: <span id="pdfValidity"></span></div>
         </div>
@@ -694,7 +694,7 @@
     }
 
     function updatePreview(calc = calculate()) {
-      $('pdfQuoteNumber').textContent = $('quoteNumber').value || 'ORÇ-0001';
+      $('pdfQuoteNumber').textContent = $('quoteNumber').value || 'ORÇ-0301';
       $('pdfDate').textContent = formatDateBR($('quoteDate').value);
       $('pdfValidity').textContent = $('validity').value || '-';
 
