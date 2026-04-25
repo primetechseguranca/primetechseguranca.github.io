@@ -1,1 +1,850 @@
-Orçamento PrimeTech
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrimeTech | Gerador de Orçamentos</title>
+  <meta name="description" content="Sistema local para criar, salvar e gerar PDF de orçamentos da PrimeTech Segurança e Elétrica." />  <!-- PDF -->  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>  <style>
+    :root {
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #141414;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --black: #050505;
+      --yellow: #ffbf00;
+      --yellow-dark: #f59e0b;
+      --danger: #dc2626;
+      --success: #16a34a;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(0, 0, 0, .08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+      color: var(--text);
+    }
+
+    .app {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: var(--black);
+      color: white;
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topbar::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: var(--yellow);
+      transform: rotate(35deg);
+      right: -120px;
+      top: -90px;
+      opacity: .95;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 2;
+    }
+
+    .brand img {
+      width: 74px;
+      height: 74px;
+      border-radius: 16px;
+      object-fit: cover;
+      background: white;
+      border: 2px solid rgba(255,255,255,.16);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: .3px;
+    }
+
+    .brand p {
+      margin: 5px 0 0;
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      z-index: 2;
+    }
+
+    button, .file-label {
+      border: none;
+      border-radius: 12px;
+      padding: 11px 14px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: .2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+    }
+
+    button:hover, .file-label:hover { transform: translateY(-1px); opacity: .93; }
+
+    .btn-primary { background: var(--yellow); color: #111; }
+    .btn-dark { background: #1f2937; color: white; }
+    .btn-light { background: #fff; color: #111; }
+    .btn-danger { background: var(--danger); color: white; }
+    .btn-success { background: var(--success); color: white; }
+    .btn-line { background: #f9fafb; color: #111; border: 1px solid var(--line); }
+
+    input[type="file"] { display: none; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      margin-top: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      border: 1px solid rgba(229,231,235,.7);
+    }
+
+    .card h2 {
+      margin: 0 0 16px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title {
+      margin: 22px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #f3f4f6;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      color: #374151;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 14px;
+      outline: none;
+      background: #fff;
+    }
+
+    textarea { min-height: 88px; resize: vertical; }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--yellow-dark);
+      box-shadow: 0 0 0 4px rgba(255, 191, 0, .16);
+    }
+
+    .items-header, .item-row {
+      display: grid;
+      grid-template-columns: 2fr .65fr .9fr .9fr 42px;
+      gap: 8px;
+      align-items: end;
+    }
+
+    .items-header {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+
+    .item-row { margin-bottom: 8px; }
+
+    .summary {
+      background: #111827;
+      color: white;
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 18px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .summary-row:last-child { border-bottom: 0; }
+
+    .summary .total {
+      font-size: 26px;
+      color: var(--yellow);
+      font-weight: 900;
+    }
+
+    .saved-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 440px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .saved-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 13px;
+      background: #fbfbfb;
+    }
+
+    .saved-item strong { display: block; font-size: 15px; }
+    .saved-item small { color: var(--muted); display: block; margin-top: 4px; }
+
+    .saved-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .saved-actions button { padding: 8px 10px; font-size: 12px; border-radius: 10px; }
+
+    .preview-wrap { margin-top: 22px; }
+
+    #pdfArea {
+      background: white;
+      color: #111;
+      width: 794px;
+      min-height: 1123px;
+      margin: 0 auto;
+      padding: 38px;
+      border-radius: 4px;
+      box-shadow: var(--shadow);
+    }
+
+    .pdf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid var(--yellow);
+      padding-bottom: 16px;
+      gap: 20px;
+    }
+
+    .pdf-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .pdf-brand img {
+      width: 92px;
+      height: 92px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .pdf-brand h2 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .pdf-brand span { color: var(--yellow-dark); }
+
+    .pdf-brand p {
+      margin: 6px 0 0;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+
+    .pdf-number {
+      text-align: right;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .pdf-number strong {
+      display: block;
+      color: #111;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .pdf-box {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 18px;
+    }
+
+    .pdf-two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .pdf-title {
+      font-size: 13px;
+      color: #6b7280;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .pdf-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    .pdf-table th {
+      background: #111827;
+      color: white;
+      text-align: left;
+      padding: 10px;
+    }
+
+    .pdf-table th:first-child { border-radius: 10px 0 0 0; }
+    .pdf-table th:last-child { border-radius: 0 10px 0 0; }
+
+    .pdf-table td {
+      padding: 10px;
+      border-bottom: 1px solid #e5e7eb;
+      vertical-align: top;
+    }
+
+    .right { text-align: right; }
+
+    .pdf-total-box {
+      margin-left: auto;
+      width: 320px;
+      margin-top: 18px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+
+    .pdf-total-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 11px 14px;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 14px;
+    }
+
+    .pdf-total-row.final {
+      background: #111827;
+      color: white;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .pdf-footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 12px;
+      color: #4b5563;
+      line-height: 1.55;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,191,0,.16);
+      border: 1px solid rgba(245,158,11,.35);
+      color: #92400e;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .items-header { display: none; }
+      .item-row { grid-template-columns: 1fr; border: 1px solid var(--line); padding: 10px; border-radius: 14px; }
+      #pdfArea { width: 100%; padding: 22px; }
+      .pdf-two { grid-template-columns: 1fr; }
+      .pdf-header { flex-direction: column; align-items: flex-start; }
+      .pdf-number { text-align: left; }
+      .pdf-total-box { width: 100%; }
+    }
+
+    @media print {
+      body { background: white; }
+      .app > :not(.preview-wrap) { display: none !important; }
+      .preview-wrap { margin: 0; }
+      #pdfArea { box-shadow: none; width: 100%; min-height: auto; }
+    }
+  </style></head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <img id="appLogo" alt="Logo PrimeTech" src="logo-primetech.png" onerror="this.src='https://i.imgur.com/Mz1EcZS.png'" />
+        <div>
+          <h1>PrimeTech Orçamentos</h1>
+          <p>Segurança Eletrônica • Elétrica • CFTV • Alarmes • Manutenção</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <label class="file-label btn-light" for="logoInput">Trocar logo</label>
+        <input id="logoInput" type="file" accept="image/*" />
+        <button class="btn-primary" onclick="saveQuote()">Salvar orçamento</button>
+        <button class="btn-light" onclick="generatePDF()">Gerar PDF</button>
+        <button class="btn-dark" onclick="newQuote()">Novo</button>
+      </div>
+    </header><main class="grid">
+  <section class="card">
+    <h2>Dados do orçamento</h2>
+
+    <div class="form-grid">
+      <div>
+        <label>Nº do orçamento</label>
+        <input id="quoteNumber" readonly />
+      </div>
+      <div>
+        <label>Data</label>
+        <input id="quoteDate" type="date" />
+      </div>
+      <div>
+        <label>Validade da proposta</label>
+        <input id="validity" value="7 dias" />
+      </div>
+      <div>
+        <label>Forma de pagamento</label>
+        <select id="payment">
+          <option>Pix/Dinheiro - 50% antes e 50% na finalização</option>
+          <option>Cartão até 6x sem juros</option>
+          <option>Cartão até 10x com acréscimo da operadora</option>
+          <option>Boleto</option>
+          <option>A combinar</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="section-title">Cliente</div>
+    <div class="form-grid">
+      <div>
+        <label>Nome do cliente</label>
+        <input id="clientName" placeholder="Ex.: Maria Silva" />
+      </div>
+      <div>
+        <label>Telefone/WhatsApp</label>
+        <input id="clientPhone" placeholder="(82) 99999-9999" />
+      </div>
+      <div class="full">
+        <label>Endereço</label>
+        <input id="clientAddress" placeholder="Rua, número, bairro, cidade/UF" />
+      </div>
+    </div>
+
+    <div class="section-title">Serviço</div>
+    <div class="form-grid">
+      <div class="full">
+        <label>Título do orçamento</label>
+        <input id="serviceTitle" placeholder="Ex.: Sistema CFTV com 4 câmeras Full HD" />
+      </div>
+      <div class="full">
+        <label>Descrição / observações</label>
+        <textarea id="notes" placeholder="Ex.: Instalação completa inclusa, configuração no celular, organização de cabos, garantia de 12 meses..."></textarea>
+      </div>
+    </div>
+
+    <div class="section-title">Itens do orçamento</div>
+    <div class="items-header">
+      <div>Descrição</div>
+      <div>Qtd.</div>
+      <div>Valor unit.</div>
+      <div>Total</div>
+      <div></div>
+    </div>
+    <div id="items"></div>
+    <button class="btn-line" onclick="addItem()">+ Adicionar item</button>
+
+    <div class="section-title">Ajustes</div>
+    <div class="form-grid">
+      <div>
+        <label>Desconto (R$)</label>
+        <input id="discount" type="number" step="0.01" value="0" oninput="updateAll()" />
+      </div>
+      <div>
+        <label>Acréscimo / taxa cartão (R$)</label>
+        <input id="fee" type="number" step="0.01" value="0" oninput="updateAll()" />
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="summary-row"><span>Subtotal</span><strong id="subtotalView">R$ 0,00</strong></div>
+      <div class="summary-row"><span>Desconto</span><strong id="discountView">R$ 0,00</strong></div>
+      <div class="summary-row"><span>Acréscimo / taxa</span><strong id="feeView">R$ 0,00</strong></div>
+      <div class="summary-row"><span>Total geral</span><strong class="total" id="totalView">R$ 0,00</strong></div>
+    </div>
+  </section>
+
+  <aside class="card">
+    <h2>Orçamentos salvos</h2>
+    <input id="searchSaved" placeholder="Pesquisar cliente ou orçamento..." oninput="renderSaved()" />
+    <div style="height:14px"></div>
+    <div id="savedList" class="saved-list"></div>
+  </aside>
+</main>
+
+<section class="preview-wrap">
+  <div id="pdfArea">
+    <div class="pdf-header">
+      <div class="pdf-brand">
+        <img id="pdfLogo" alt="Logo PrimeTech" src="logo-primetech.png" onerror="this.src='https://i.imgur.com/Mz1EcZS.png'" />
+        <div>
+          <h2>Prime<span>Tech</span></h2>
+          <p>SOLUÇÕES EM SEGURANÇA E ELÉTRICA</p>
+          <div class="badge">Orçamento comercial</div>
+        </div>
+      </div>
+      <div class="pdf-number">
+        <strong id="pdfQuoteNumber">ORÇ-0001</strong>
+        <div>Data: <span id="pdfDate"></span></div>
+        <div>Validade: <span id="pdfValidity"></span></div>
+      </div>
+    </div>
+
+    <div class="pdf-two">
+      <div class="pdf-box">
+        <div class="pdf-title">Cliente</div>
+        <div><strong id="pdfClientName">Cliente não informado</strong></div>
+        <div id="pdfClientPhone"></div>
+        <div id="pdfClientAddress"></div>
+      </div>
+      <div class="pdf-box">
+        <div class="pdf-title">Dados da PrimeTech</div>
+        <div><strong>PrimeTech Segurança e Elétrica</strong></div>
+        <div>Responsável técnico: Joelson J. Santos</div>
+        <div>Atendimento: Penedo e região • AL/SE</div>
+      </div>
+    </div>
+
+    <div class="pdf-box">
+      <div class="pdf-title">Serviço proposto</div>
+      <div><strong id="pdfServiceTitle">Serviço não informado</strong></div>
+      <div id="pdfNotes" style="margin-top:8px; white-space:pre-line;"></div>
+    </div>
+
+    <table class="pdf-table">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th class="right">Qtd.</th>
+          <th class="right">Valor unit.</th>
+          <th class="right">Total</th>
+        </tr>
+      </thead>
+      <tbody id="pdfItems"></tbody>
+    </table>
+
+    <div class="pdf-total-box">
+      <div class="pdf-total-row"><span>Subtotal</span><strong id="pdfSubtotal">R$ 0,00</strong></div>
+      <div class="pdf-total-row"><span>Desconto</span><strong id="pdfDiscount">R$ 0,00</strong></div>
+      <div class="pdf-total-row"><span>Acréscimo / taxa</span><strong id="pdfFee">R$ 0,00</strong></div>
+      <div class="pdf-total-row final"><span>Total</span><strong id="pdfTotal">R$ 0,00</strong></div>
+    </div>
+
+    <div class="pdf-box">
+      <div class="pdf-title">Pagamento</div>
+      <div id="pdfPayment"></div>
+    </div>
+
+    <div class="pdf-footer">
+      <strong>Condições gerais:</strong><br />
+      Este orçamento é válido pelo prazo informado acima. Valores podem sofrer alteração conforme mudança de escopo, distância, infraestrutura existente ou inclusão de novos materiais/serviços. Garantia e suporte conforme descrito na proposta comercial.
+      <br /><br />
+      <strong>PrimeTech Segurança e Elétrica</strong> — Soluções profissionais em segurança eletrônica e elétrica.
+    </div>
+  </div>
+</section>
+
+  </div>  <script>
+    const STORAGE_KEY = 'primetech_orcamentos_v1';
+    const LOGO_KEY = 'primetech_logo_base64';
+
+    const $ = id => document.getElementById(id);
+
+    function money(value) {
+      return Number(value || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function todayISO() {
+      return new Date().toISOString().split('T')[0];
+    }
+
+    function formatDateBR(date) {
+      if (!date) return '';
+      const [y, m, d] = date.split('-');
+      return `${d}/${m}/${y}`;
+    }
+
+    function getSaved() {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    }
+
+    function setSaved(data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    function nextQuoteNumber() {
+      const saved = getSaved();
+      const next = saved.length + 1;
+      return `ORÇ-${String(next).padStart(4, '0')}`;
+    }
+
+    function addItem(item = {}) {
+      const row = document.createElement('div');
+      row.className = 'item-row';
+      row.innerHTML = `
+        <div><input class="desc" placeholder="Ex.: Câmera Full HD Intelbras" value="${item.desc || ''}" oninput="updateAll()"></div>
+        <div><input class="qty" type="number" min="0" step="1" value="${item.qty || 1}" oninput="updateAll()"></div>
+        <div><input class="unit" type="number" min="0" step="0.01" value="${item.unit || 0}" oninput="updateAll()"></div>
+        <div><input class="rowTotal" readonly></div>
+        <div><button class="btn-danger" onclick="this.closest('.item-row').remove(); updateAll();">×</button></div>
+      `;
+      $('items').appendChild(row);
+      updateAll();
+    }
+
+    function collectItems() {
+      return [...document.querySelectorAll('.item-row')].map(row => {
+        const desc = row.querySelector('.desc').value.trim();
+        const qty = Number(row.querySelector('.qty').value || 0);
+        const unit = Number(row.querySelector('.unit').value || 0);
+        const total = qty * unit;
+        row.querySelector('.rowTotal').value = money(total);
+        return { desc, qty, unit, total };
+      }).filter(item => item.desc || item.qty || item.unit);
+    }
+
+    function calculate() {
+      const items = collectItems();
+      const subtotal = items.reduce((sum, item) => sum + item.total, 0);
+      const discount = Number($('discount').value || 0);
+      const fee = Number($('fee').value || 0);
+      const total = Math.max(0, subtotal - discount + fee);
+      return { items, subtotal, discount, fee, total };
+    }
+
+    function updateAll() {
+      const calc = calculate();
+      $('subtotalView').textContent = money(calc.subtotal);
+      $('discountView').textContent = money(calc.discount);
+      $('feeView').textContent = money(calc.fee);
+      $('totalView').textContent = money(calc.total);
+      updatePreview(calc);
+    }
+
+    function updatePreview(calc = calculate()) {
+      $('pdfQuoteNumber').textContent = $('quoteNumber').value || 'ORÇ-0001';
+      $('pdfDate').textContent = formatDateBR($('quoteDate').value);
+      $('pdfValidity').textContent = $('validity').value || '-';
+
+      $('pdfClientName').textContent = $('clientName').value || 'Cliente não informado';
+      $('pdfClientPhone').textContent = $('clientPhone').value || '';
+      $('pdfClientAddress').textContent = $('clientAddress').value || '';
+
+      $('pdfServiceTitle').textContent = $('serviceTitle').value || 'Serviço não informado';
+      $('pdfNotes').textContent = $('notes').value || '';
+      $('pdfPayment').textContent = $('payment').value || '';
+
+      $('pdfItems').innerHTML = calc.items.length ? calc.items.map(item => `
+        <tr>
+          <td>${item.desc || '-'}</td>
+          <td class="right">${item.qty}</td>
+          <td class="right">${money(item.unit)}</td>
+          <td class="right"><strong>${money(item.total)}</strong></td>
+        </tr>
+      `).join('') : `<tr><td colspan="4">Nenhum item informado.</td></tr>`;
+
+      $('pdfSubtotal').textContent = money(calc.subtotal);
+      $('pdfDiscount').textContent = money(calc.discount);
+      $('pdfFee').textContent = money(calc.fee);
+      $('pdfTotal').textContent = money(calc.total);
+    }
+
+    function collectQuote() {
+      const calc = calculate();
+      return {
+        id: $('quoteNumber').value || nextQuoteNumber(),
+        date: $('quoteDate').value,
+        validity: $('validity').value,
+        payment: $('payment').value,
+        clientName: $('clientName').value,
+        clientPhone: $('clientPhone').value,
+        clientAddress: $('clientAddress').value,
+        serviceTitle: $('serviceTitle').value,
+        notes: $('notes').value,
+        discount: $('discount').value,
+        fee: $('fee').value,
+        items: calc.items,
+        total: calc.total,
+        updatedAt: new Date().toISOString()
+      };
+    }
+
+    function fillQuote(q) {
+      $('quoteNumber').value = q.id || nextQuoteNumber();
+      $('quoteDate').value = q.date || todayISO();
+      $('validity').value = q.validity || '7 dias';
+      $('payment').value = q.payment || 'Pix/Dinheiro - 50% antes e 50% na finalização';
+      $('clientName').value = q.clientName || '';
+      $('clientPhone').value = q.clientPhone || '';
+      $('clientAddress').value = q.clientAddress || '';
+      $('serviceTitle').value = q.serviceTitle || '';
+      $('notes').value = q.notes || '';
+      $('discount').value = q.discount || 0;
+      $('fee').value = q.fee || 0;
+      $('items').innerHTML = '';
+      (q.items && q.items.length ? q.items : [{ desc: '', qty: 1, unit: 0 }]).forEach(addItem);
+      updateAll();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function saveQuote() {
+      const q = collectQuote();
+      if (!q.clientName && !q.serviceTitle) {
+        alert('Informe pelo menos o nome do cliente ou o título do serviço.');
+        return;
+      }
+
+      const saved = getSaved();
+      const index = saved.findIndex(item => item.id === q.id);
+      if (index >= 0) saved[index] = q;
+      else saved.unshift(q);
+      setSaved(saved);
+      renderSaved();
+      alert('Orçamento salvo no banco local do navegador.');
+    }
+
+    function renderSaved() {
+      const term = $('searchSaved').value.toLowerCase();
+      const saved = getSaved().filter(q => {
+        const text = `${q.id} ${q.clientName} ${q.serviceTitle}`.toLowerCase();
+        return text.includes(term);
+      });
+
+      $('savedList').innerHTML = saved.length ? saved.map(q => `
+        <div class="saved-item">
+          <strong>${q.id} — ${q.clientName || 'Cliente não informado'}</strong>
+          <small>${q.serviceTitle || 'Serviço não informado'}</small>
+          <small>Total: <b>${money(q.total)}</b> • ${formatDateBR(q.date)}</small>
+          <div class="saved-actions">
+            <button class="btn-dark" onclick='loadQuote("${q.id}")'>Abrir</button>
+            <button class="btn-primary" onclick='loadQuote("${q.id}"); setTimeout(generatePDF, 300);'>PDF</button>
+            <button class="btn-danger" onclick='deleteQuote("${q.id}")'>Excluir</button>
+          </div>
+        </div>
+      `).join('') : '<p style="color:#6b7280;">Nenhum orçamento salvo ainda.</p>';
+    }
+
+    function loadQuote(id) {
+      const q = getSaved().find(item => item.id === id);
+      if (q) fillQuote(q);
+    }
+
+    function deleteQuote(id) {
+      if (!confirm('Deseja excluir este orçamento?')) return;
+      setSaved(getSaved().filter(item => item.id !== id));
+      renderSaved();
+    }
+
+    function newQuote() {
+      fillQuote({ id: nextQuoteNumber(), date: todayISO(), validity: '7 dias', items: [{ desc: '', qty: 1, unit: 0 }] });
+    }
+
+    function generatePDF() {
+      updateAll();
+      const filename = `${$('quoteNumber').value || 'orcamento'}-${($('clientName').value || 'cliente').replaceAll(' ', '-')}.pdf`;
+      const opt = {
+        margin: 0,
+        filename,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'pt', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from($('pdfArea')).save();
+    }
+
+    function loadLogo() {
+      const savedLogo = localStorage.getItem(LOGO_KEY);
+      if (savedLogo) {
+        $('appLogo').src = savedLogo;
+        $('pdfLogo').src = savedLogo;
+      }
+    }
+
+    $('logoInput').addEventListener('change', event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        localStorage.setItem(LOGO_KEY, e.target.result);
+        loadLogo();
+      };
+      reader.readAsDataURL(file);
+    });
+
+    ['quoteDate', 'validity', 'payment', 'clientName', 'clientPhone', 'clientAddress', 'serviceTitle', 'notes'].forEach(id => {
+      $(id).addEventListener('input', updateAll);
+      $(id).addEventListener('change', updateAll);
+    });
+
+    loadLogo();
+    newQuote();
+    renderSaved();
+  </script>
+</body>
+</html>
