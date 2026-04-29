@@ -430,3 +430,115 @@ h1 {
 .next {
   right: -10px;
 }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.78);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 18px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  width: min(92vw, 760px);
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px;
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+}
+
+.lightbox-content img {
+  width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #f2f2f2;
+}
+
+.lightbox-close,
+.lightbox-arrow {
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background: #fff;
+  color: #101828;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 42px;
+  height: 42px;
+  font-size: 26px;
+}
+
+.lightbox-arrow {
+  width: 44px;
+  height: 44px;
+  font-size: 32px;
+  margin: 0 12px;
+}
+
+.lightbox-thumbs {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.lightbox-thumbs img {
+  width: 56px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 0.55;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.lightbox-thumbs img.active {
+  opacity: 1;
+  border-color: #f6b73c;
+}
+
+#lightboxCounter {
+  margin-top: 8px;
+  color: #667085;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .lightbox {
+    padding: 10px;
+  }
+
+  .lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox-prev {
+    left: 8px;
+  }
+
+  .lightbox-next {
+    right: 8px;
+  }
+
+  .lightbox-content {
+    width: 100%;
+  }
+}
