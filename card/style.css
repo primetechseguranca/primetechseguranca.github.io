@@ -279,3 +279,70 @@ h1 {
     box-shadow: 0 0 0 rgba(37, 211, 102, 0.7);
   }
 }
+
+/* FUNDO MAIS PROFISSIONAL */
+body {
+  background: radial-gradient(circle at top, #0a0a0f, #050507);
+}
+
+/* EFEITO GLOW NO LOGO */
+.logo-wrap {
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
+}
+
+/* BOTÕES ESTILO APP */
+.btn-icon {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-icon:hover {
+  background: linear-gradient(135deg, #00d4ff, #0ff);
+  box-shadow: 0 0 15px rgba(0,212,255,0.7);
+}
+
+/* CARDS MAIS PROFUNDOS */
+.service-card,
+.review-card,
+.glass {
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* EFEITO HOVER NOS CARDS */
+.service-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 20px rgba(0,212,255,0.3);
+}
+
+/* GALERIA ESTILO CARROSSEL */
+.gallery {
+  padding-bottom: 5px;
+}
+
+.gallery img {
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.08);
+}
+
+/* BOTÃO WHATSAPP MAIS PREMIUM */
+.main-btn {
+  background: linear-gradient(135deg, #25d366, #1ebe5d);
+  box-shadow: 0 10px 25px rgba(37,211,102,0.5);
+}
+
+/* SEÇÃO HERO MAIS FORTE */
+.hero {
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* TEXTO MAIS LIMPO */
+p {
+  line-height: 1.5;
+}
