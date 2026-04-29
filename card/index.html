@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>PrimeTech Segurança e Elétrica</title>
 
-  <link rel="stylesheet" href="style.css" />
-
+  <link rel="stylesheet" href="./style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -25,7 +23,7 @@
 
       <div class="profile-box">
         <div class="logo-wrap">
-          <img src="logo.jpg" alt="Logo PrimeTech" class="logo">
+          <img src="logo.png" alt="Logo PrimeTech" class="logo">
         </div>
 
         <h1>PrimeTech</h1>
@@ -52,11 +50,11 @@
           <i class="fa-solid fa-phone"></i>
         </a>
 
-        <a href="https://www.instagram.com/primetech360al" target="_blank" class="btn-icon instagram">
+        <a href="https://www.instagram.com/primetech.seg" target="_blank" class="btn-icon instagram">
           <i class="fa-brands fa-instagram"></i>
         </a>
 
-        <a href="https://primetechseg.github.io/" target="_blank" class="btn-icon site">
+        <a href="https://primetechseg.github.io/card/" target="_blank" class="btn-icon site">
           <i class="fa-solid fa-globe"></i>
         </a>
       </div>
@@ -78,14 +76,15 @@
       </div>
 
       <div class="service-grid">
+
         <div class="service-card">
-          <i class="fa-solid fa-video"></i>
+          <i class="fa-solid fa-camera"></i>
           <h3>CFTV</h3>
           <p>Câmeras, DVR/NVR, acesso remoto e configuração no celular.</p>
         </div>
 
         <div class="service-card">
-          <i class="fa-solid fa-shield-halved"></i>
+          <i class="fa-solid fa-bell"></i>
           <h3>Alarmes</h3>
           <p>Instalação, sensores, sirenes e manutenção de centrais.</p>
         </div>
@@ -97,45 +96,53 @@
         </div>
 
         <div class="service-card">
-          <i class="fa-solid fa-door-open"></i>
+          <i class="fa-solid fa-gear"></i>
           <h3>Automação</h3>
           <p>Portões automáticos e bombas d'água.</p>
         </div>
 
         <div class="service-card">
-          <i class="fa-solid fa-plug-circle-bolt"></i>
+          <i class="fa-solid fa-plug"></i>
           <h3>Elétrica</h3>
           <p>Instalação, manutenção, quadros, tomadas e iluminação.</p>
         </div>
 
         <div class="service-card">
-          <i class="fa-solid fa-network-wired"></i>
+          <i class="fa-solid fa-wifi"></i>
           <h3>Redes e TI</h3>
           <p>Suporte técnico, redes, internet e organização de cabeamento.</p>
         </div>
+
       </div>
     </section>
 
     <section class="gallery-section">
-      <div class="section-title">
-        <span></span>
-        <h2>Trabalhos realizados</h2>
+      <div class="section-title gallery-title">
+        <div class="title-left">
+          <span></span>
+          <h2>Trabalhos realizados</h2>
+        </div>
+
+        <div class="video-badge">
+          <i class="fa-solid fa-play"></i>
+          Vídeos disponíveis
+        </div>
       </div>
 
       <div class="gallery-wrapper">
-  <button class="nav prev">‹</button>
+        <button class="nav prev" type="button">‹</button>
 
-  <div class="gallery" id="gallery">
-    <div class="gallery-item"></div><img src="img1.jpg" alt="Trabalho realizado"></div>
-    <div class="gallery-item"></div><img src="img2.jpg" alt="Trabalho realizado"></div>
-    <div class="gallery-item"></div><img src="img3.jpg" alt="Trabalho realizado"></div>
-    <div class="gallery-item"></div><img src="img4.jpg" alt="Trabalho realizado"></div>
-    <div class="gallery-item"></div><img src="img5.jpg" alt="Trabalho realizado"></div>
-    <div class="gallery-item"></div><img src="img6.jpg" alt="Trabalho realizado"></div>
-  </div>
+        <div class="gallery" id="gallery">
+          <div class="gallery-item"><img src="img1.jpg" alt="Trabalho realizado PrimeTech"></div>
+          <div class="gallery-item"><img src="img2.jpg" alt="Trabalho realizado PrimeTech"></div>
+          <div class="gallery-item"><img src="img3.jpg" alt="Trabalho realizado PrimeTech"></div>
+          <div class="gallery-item"><img src="img4.jpg" alt="Trabalho realizado PrimeTech"></div>
+          <div class="gallery-item"><img src="img5.jpg" alt="Trabalho realizado PrimeTech"></div>
+          <div class="gallery-item"><img src="img6.jpg" alt="Trabalho realizado PrimeTech"></div>
+        </div>
 
-  <button class="nav next">›</button>
-</div>
+        <button class="nav next" type="button">›</button>
+      </div>
     </section>
 
     <section class="reviews">
@@ -181,6 +188,16 @@
       </div>
     </section>
 
+    <section class="save-contact">
+      <a href="contato.vcf" download class="save-btn">
+        <span>
+          <i class="fa-solid fa-address-card"></i>
+          Salvar contato
+        </span>
+        <i class="fa-solid fa-chevron-right"></i>
+      </a>
+    </section>
+
     <section class="cta glass">
       <h2>Vamos conversar?</h2>
       <p>Solicite seu orçamento agora mesmo pelo WhatsApp.</p>
@@ -198,20 +215,18 @@
   </a>
 
   <div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="closeLightbox">×</button>
-  <button class="lightbox-arrow lightbox-prev" id="lightboxPrev">‹</button>
+    <button class="lightbox-close" id="closeLightbox" type="button">×</button>
+    <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" type="button">‹</button>
 
-  <div class="lightbox-content">
-    <img id="lightboxImage" src="" alt="Foto ampliada">
-    <div class="lightbox-thumbs" id="lightboxThumbs"></div>
-    <p id="lightboxCounter"></p>
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="Foto ampliada">
+      <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+      <p id="lightboxCounter"></p>
+    </div>
+
+    <button class="lightbox-arrow lightbox-next" id="lightboxNext" type="button">›</button>
   </div>
 
-  <button class="lightbox-arrow lightbox-next" id="lightboxNext">›</button>
-</div>
-
-<script src="./script.js"></script>
-</body>
-</div>
+  <script src="./script.js"></script>
 </body>
 </html>
